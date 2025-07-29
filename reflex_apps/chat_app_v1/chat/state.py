@@ -5,11 +5,8 @@ from openai import OpenAI
 from openai.types.chat import ChatCompletionMessageParam
 from dotenv import load_dotenv
 
-load_dotenv()
-
-# Checking if the API key is set properly
-if not os.getenv("OPENAI_API_KEY"):
-    raise Exception("Please set OPENAI_API_KEY environment variable.")
+# Load .env file if it exists (optional for Docker deployment)
+load_dotenv(override=False)
 
 
 class QA(TypedDict):
